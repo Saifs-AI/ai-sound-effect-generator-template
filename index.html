@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Sound Effect Generator | Creative Audio Solutions</title>
+    <meta name="description" content="Experience the future of sound design with our AI Sound Effect Generator. Create unique, high-quality sound effects instantly for your creative projects.">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <nav>
+                <div class="logo"><a style="text-decoration: none;" href="https://saifs.ai">AI Sound FX </a></div>
+                <a href="https://saifs.ai/ai-sound-effect-generator" class="cta-button">Visit Saifs.ai</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero">
+                <h1>AI Sound Effect Generator</h1>
+                <p>Create unique sound effects powered by artificial intelligence</p>
+            </section>
+
+            <section class="generator">
+                <div class="control-panel">
+                    <div class="input-group">
+                        <label for="effect-type">Effect Type</label>
+                        <select v-model="effectType" id="effect-type">
+                            <option value="ambient">Ambient</option>
+                            <option value="sci-fi">Sci-Fi</option>
+                            <option value="nature">Nature</option>
+                            <option value="mechanical">Mechanical</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="duration">Duration (seconds)</label>
+                        <input type="range" v-model="duration" min="1" max="10" id="duration">
+                        <span>{{ duration }}s</span>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="complexity">Complexity</label>
+                        <input type="range" v-model="complexity" min="1" max="10" id="complexity">
+                        <span>{{ complexity }}/10</span>
+                    </div>
+
+                    <button @click="generateSound" :disabled="isGenerating" class="generate-btn">
+                        {{ isGenerating ? 'Generating...' : 'Generate Sound' }}
+                    </button>
+                </div>
+
+                <div class="visualization">
+                    <div class="wave-animation" :class="{ active: isGenerating }">
+                        <div v-for="n in 8" :key="n" class="wave-bar"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="features">
+                <h2>Features</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h3>AI-Powered</h3>
+                        <p>Advanced algorithms create unique sounds</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Customizable</h3>
+                        <p>Fine-tune your sound effects</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Instant</h3>
+                        <p>Generate effects in seconds</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Professional</h3>
+                        <p>Studio-quality output</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Experience the full power of AI sound generation at <a href="https://saifs.ai/ai-sound-effect-generator">Saifs.ai</a></p>
+        </footer>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html> 
